@@ -4,7 +4,7 @@ a = read()
 if a == pass then
     print("Password correct!")
     rs.setOutput("front", true)
-    sleep(1)
+    sleep(1) --これがコメントか
     rs.setOutput("front", false)
 else
     print("Password incorrect!")
