@@ -1,2 +1,2 @@
-rednet.open("right")
+rednet.open("up")
 print(rednet.receive())
