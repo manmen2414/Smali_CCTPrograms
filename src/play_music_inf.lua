@@ -11,6 +11,7 @@ while true do
     else
         break
     end
+    sleep(0.5)
 end
 local i = 0
 
