@@ -6,12 +6,12 @@ while true do
     print("You have " .. #musics .. " music(s)")
     print("If you type 'end', then play music. URLs:")
     local musicurl = read()
-    if not musicurl == "end" then
-        musics[#musics + 1] = musicurl
-        print(1)
-    else
-        print(2)
+    if musicurl == "end" then
+        print(4)
         break
+    else
+        musics[#musics + 1] = musicurl
+        print(2)
     end
     print(3)
     sleep(0.5)
