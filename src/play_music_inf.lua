@@ -29,15 +29,16 @@ while true do
         print("Please type .mplaylist path")
         local path = read()
         local file = fs.open(path, "r")
-        local linenum = 0
+        local skipped = false
         while true do
             local line = file.readLine()
             if not line then break end
-            if not linenum == 0 then
+            if skipped then
                 musics[#musics + 1] = line
                 print("Adding music...")
+            else
+                skipped = true
             end
-            linenum = linenum + 1
         end
         file.close()
         print("-End!")
