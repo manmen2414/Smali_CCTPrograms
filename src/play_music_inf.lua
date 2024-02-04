@@ -20,7 +20,7 @@ while true do
             text = text .. "\n" .. value
             print("Writing music" .. index)
         end
-        local file = fs.open(path, "w")
+        local file = fs.open(path .. ".mplaylist", "w")
         file.write(text)
         file.close()
         print("-End!")
@@ -29,7 +29,7 @@ while true do
         term.setCursorPos(1, 1)
         print("Please type .mplaylist path")
         local path = read()
-        local file = fs.open(path .. ".mplaylist", "r")
+        local file = fs.open(path, "r")
         local linenum = 0
         while true do
             local line = file.readLine()
