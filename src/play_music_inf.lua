@@ -10,7 +10,6 @@ while true do
     print("Please URL or command:")
     local musicurl = read()
     if musicurl == "end" then
-        --print(4)
         break
     elseif musicurl == "save" then
         local text = ""
