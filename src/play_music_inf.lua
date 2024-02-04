@@ -7,6 +7,6 @@ local i = 0
 while true do
     i = i + 1
     term.clear()
-    print("I am playing " + i + " time(s).")
+    print("I am playing " .. i .. " time(s).")
     shell.execute("speaker", "play", url)
 end
