@@ -56,7 +56,7 @@ while true do
         --print(4)
         term.clear()
         term.setCursorPos(1, 1)
-        print("I am playing " .. i .. " time(s).\nhold CTRL+R to end")
+        print("I am playing " .. i .. " time(s).\nhold CTRL+R:end\nhold CTRL+T:next")
         shell.execute("speaker", "play", value)
         --print(5)
     end
