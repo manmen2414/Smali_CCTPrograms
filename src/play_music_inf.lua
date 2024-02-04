@@ -29,13 +29,16 @@ while true do
         term.setCursorPos(1, 1)
         print("Please type .mplaylist path")
         local path = read()
-        local file = fs.open(path, "r")
-        local lines = {}
+        local file = fs.open(path .. ".mplaylist", "r")
+        local linenum = 0
         while true do
             local line = file.readLine()
             if not line then break end
-            musics[#musics + 1] = line
-            print("Adding music...")
+            if not linenum == 0 then
+                musics[#musics + 1] = line
+                print("Adding music...")
+            end
+            linenum = linenum + 1
         end
         file.close()
         print("-End!")
