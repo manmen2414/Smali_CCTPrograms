@@ -15,14 +15,18 @@ while true do
         local text = ""
         print("Please type name")
         local path = read()
-        for index, value in next, musics do
-            text = text .. "\n" .. value
-            print("Writing music" .. index)
+        print("[" .. path .. ".mplaylist] OK?(y/n)")
+        local check = read()
+        if check == "y" then
+            for index, value in next, musics do
+                text = text .. "\n" .. value
+                print("Writing music" .. index)
+            end
+            local file = fs.open(path .. ".mplaylist", "w")
+            file.write(text)
+            file.close()
+            print("-End!")
         end
-        local file = fs.open(path .. ".mplaylist", "w")
-        file.write(text)
-        file.close()
-        print("-End!")
     elseif musicurl == "load" then
         term.clear()
         term.setCursorPos(1, 1)
