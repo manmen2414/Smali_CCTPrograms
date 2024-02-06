@@ -1,5 +1,4 @@
 local akki1 = 0
--- create table
 local songs = {"Song 1"}
 local songtype = 0
 local akki1 = 0
