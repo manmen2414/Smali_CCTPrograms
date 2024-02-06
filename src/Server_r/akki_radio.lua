@@ -6,7 +6,7 @@ while true do
     local monitor = peripheral.find("monitor") --need moniter
     songtype = songtype + 1
     akki1 = akki1 + 1
-for index, value in next, array do
+for index, value in next, songs do
 	if(songtype == index+1) then
   songname = value
   break
