@@ -5,7 +5,7 @@ repeat
   event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
 until channel == 15
 print("Received a reply: " .. tostring(message))
-modem.transmit(43, 15, "Hello, world!")
+modem.transmit(43, 15, "Hello Too")
 
 
 
