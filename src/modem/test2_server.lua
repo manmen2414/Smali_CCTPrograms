@@ -1,3 +1,4 @@
+local array = {"1"="hhello","2"="world"}
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 modem.open(25565) -- Open 25565 so we can receive replies
 local event, side, channel, replyChannel, message, distance
