@@ -12,17 +12,20 @@ while true do
         print("Paper name:")
         local input = read()
         printer.setPageTitle(input)
+        first = false
         print("---------------")
     else
         local input = read()
-        printer.setCursorPos(1, cur)
-        printer.write("")
         if input == "!end!" then
             -- And finally print the page!
             if not printer.endPage() then
                 error("Cannot end the page. Is there enough space?")
             end
             break;
+        else
+            printer.setCursorPos(1, cur)
+            printer.write(input)
+            cur = cur + 1
         end
     end
 end
