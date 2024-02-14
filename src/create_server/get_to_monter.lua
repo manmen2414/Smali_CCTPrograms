@@ -1,6 +1,10 @@
-local monter = peripheral.find("monter")
-local url
+-- Need to string_to_signal.lua
+local monter = peripheral.find("monitor")
 local lastvalue = ""
+print("url:")
+local url = read()
+term.clear()
+term.getCursorPos(1, 1)
 while true do
     local value = http.get(url, { ["ngrok-skip-browser-warning"] = true }).readAll()
     if value == lastvalue then else

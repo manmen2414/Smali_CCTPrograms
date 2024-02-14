@@ -1,4 +1,11 @@
 local station = peripheral.wrap("left")
+print("3")
+sleep(1)
+print("2")
+sleep(1)
+print("1")
+sleep(1)
+
 station.setAssemblyMode(true)
 sleep(10)
 station.assemble()
