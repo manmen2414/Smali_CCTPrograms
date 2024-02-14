@@ -1,4 +1,4 @@
--- Need to string_to_signal.lua
+-- Need to str2signal.lua
 local monter = peripheral.find("monitor")
 local lastvalue = ""
 print("url:")

@@ -9,6 +9,7 @@ function Str2Signal(str)
         if value > 1 then
             signal.warning = (value % 2 == 0)
         end
+        return signal
     else
         error("str is not String!")
     end
