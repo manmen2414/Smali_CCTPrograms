@@ -4,6 +4,8 @@ local printer = peripheral.find("printer")
 if not printer.newPage() then
     error("Cannot start a new page. Do you have ink and paper?")
 end
+term.clear();
+term.setCursorPos(1, 1)
 local cur = 1
 local first = true;
 while true do
@@ -13,7 +15,7 @@ while true do
         local input = read()
         printer.setPageTitle(input)
         first = false
-        print("---------------")
+        print("--------------- END:[!end!]")
     else
         local input = read()
         if input == "!end!" then
