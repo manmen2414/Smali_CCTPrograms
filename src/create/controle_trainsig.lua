@@ -56,7 +56,7 @@ local color = {
     end
 end
 show(color)
---[[while true do
+while true do
     show({ "R", "Y", "G" });
     sleep(1)
     show({ "Y", "G", "R" });

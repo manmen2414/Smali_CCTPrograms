@@ -21,6 +21,19 @@ local function makePotLikeGUI()
     term.setBackgroundColor(colors.black)
 end
 
+local function askPotRecipe()
+    makePotLikeGUI()
+    Console.WriteLine("Recipe Input ( _ -> - ):")
+    local recipe = {}
+    for i = 1, 6, 1 do
+        recipe[i] = Console.ReadLine("Slot " .. i, nil, colors.cyan, { ["replaces"] = { ["-"] = "_" } })
+        if recipe[i] == "" then
+            recipe[i] = nil
+        end
+    end
+    return recipe
+end
+
 Console.ResetConsole()
 Console.WriteLine("Connected pots:", colors.cyan)
 for index, value in ipairs(peripheral.getNames()) do
@@ -46,8 +59,13 @@ for i = 1, #pots, 1 do
     end
 end
 
-Console.Read("(C raft/R epeat)", { "c", "C", "r", "R" }, colors.lightBlue)
-makePotLikeGUI()
+if #pots == 0 then
+    Console.Error("I don't have any pots!")
+    return;
+end
+
+local mode = Console.ReadLine("(C raft/R epeat)", { "c", "r", "craft", "repeat" }, colors.lightBlue)
+Console.WriteLine(textutils.serialiseJSON(askPotRecipe()))
 
 
 

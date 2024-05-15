@@ -4,5 +4,6 @@
         "undefined-field",
         "deprecated",
         "unused-function"
-    ]
+    ],
+    "Lua.completion.autoRequire": false
 }
