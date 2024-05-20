@@ -1,7 +1,7 @@
 local send = require("WebhookDiscord");
 local embedutil = require("CreateEmbed");
 print(send(
-    "https://discord.com/api/webhooks/1137377531322970205/LlMskpsrv8CDMZtFHNkyqfjPSjpku0i19QGQB7r9BFHOVpJIAsICQ7yWd4i3v6it1BCJ",
+    "",
     nil, nil, nil, { embedutil.Embed(
         "TASK LEVEL: 14",
         "過労！！<:red_decal:1204920076042641468>", nil, nil,

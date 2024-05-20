@@ -2,7 +2,7 @@
 local monitor = peripheral.wrap("monitor_7")
 local time = 0.05;
 local url =
-"https://discord.com/api/webhooks/1137377531322970205/LlMskpsrv8CDMZtFHNkyqfjPSjpku0i19QGQB7r9BFHOVpJIAsICQ7yWd4i3v6it1BCJ"
+""
 local WebHook = require("WebhookDiscord")
 local sendtext = "Someone approached.<@778582802504351745>"
 local showtext = { "STOP!", "If you go,", "you will be PUNISHED." }
