@@ -1,7 +1,7 @@
 local invent = false
 local hex = "0123456789ABCDEF"
 print("  " .. hex)
-for i = 0, 112, 16 do
+for i = 0, 240, 16 do
     term.setTextColor(colors.white)
     term.write(hex:sub(i / 16 + 1, i / 16 + 1) .. " ")
     for j = 0, 15, 1 do
