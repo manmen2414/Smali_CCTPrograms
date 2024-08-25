@@ -1,0 +1,10 @@
+[
+    {
+        "name": "example",
+        "from": "left",
+        "to": "right",
+        "filter": {
+            "slot": 1
+        }
+    }
+]
