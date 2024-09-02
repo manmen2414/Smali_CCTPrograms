@@ -23,7 +23,7 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
     for folder in getFolder do
         program.folders[#program.folders + 1] = folder
     end
-    function program.install(self)
+    function program.install(self, falsereturn)
         local fullDir = "";
         for _, value in ipairs(self.folders) do
             fullDir = fullDir .. value
@@ -32,7 +32,7 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
             end
         end
         local req;
-        if self.isAddon then
+        if falsereturn then
             req = "return false;"
         else
             req = http.get(self.installPath);
@@ -57,10 +57,8 @@ function Project.new(Root)
     project.files = {};
     function project.install(self, List)
         for index, value in ipairs(self.files) do
-            if (not value.isAddon or List[index]) then
-                print("Installing " .. value.file)
-                value:install()
-            end
+            print("Installing " .. value.file)
+            value:install(not value.isAddon or List[index])
         end
     end
 
