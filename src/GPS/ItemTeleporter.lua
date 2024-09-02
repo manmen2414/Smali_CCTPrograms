@@ -1,7 +1,6 @@
 local idAndMCID = {
+    ---example  inventoryManagerID = "MCID"
     inventoryManager_4 = "AM_107ryu",
-    inventoryManager_5 = "Motchii709",
-    inventoryManager_6 = "AutumnMouse578"
 }
 local Reversed = {};
 for key, value in pairs(idAndMCID) do

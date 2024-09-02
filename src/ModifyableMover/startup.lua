@@ -4,7 +4,7 @@ local setting = textutils.unserialiseJSON(settingRead.readAll());
 settingRead.close();
 repeat
     for _, Component in ipairs(setting) do
-        local Slot = -1;
+        local Slot = -2;
         local _, reason = pcall(function()
             local from = peripheral.wrap(Component.from);
             local list = from.list()
@@ -16,6 +16,8 @@ repeat
                 end
             elseif Component.filter.slot then
                 Slot = Component.filter.slot;
+            else
+                Slot = -1;
             end
             if Slot == -1 then
                 for slot, _ in ipairs(list) do
@@ -26,6 +28,9 @@ repeat
             end
         end);
         if reason == "Terminated" then
+            term.setTextColor(colors.red)
+            print("Terminated")
+            term.setTextColor(colors.white)
             return;
         end
     end

@@ -1,6 +1,5 @@
 local discordId = {
-    Motchii709 = "996556489244291152",
-    AutumnMouse578 = "903999356515024896",
+    ---example MCID = "ID"
     AM_107ryu = "778582802504351745"
 }
 local webhook_url = nil;
