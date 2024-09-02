@@ -23,7 +23,7 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
     for folder in getFolder do
         program.folders[#program.folders + 1] = folder
     end
-    function program.install(self, falsereturn)
+    function program.install(self, InstallFull)
         local fullDir = "";
         for _, value in ipairs(self.folders) do
             fullDir = fullDir .. value
@@ -32,7 +32,7 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
             end
         end
         local content = "";
-        if falsereturn then
+        if not InstallFull then
             content = "return false;"
         else
             local req = http.get(self.installPath);
