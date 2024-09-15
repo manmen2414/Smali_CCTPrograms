@@ -84,7 +84,8 @@ local Projects = {
         :addProgram(Program.new("gui.lua", "GUI/", false)),
     GPS = Project.new("GPS/"):add("chat.lua", true):add("GPS.lua"):add("health.lua"):add("item.lua", true)
         :add("ItemTeleporter.lua", true):add("position.lua"):add("startup.lua"):add("teamview.lua", true):add(
-            "webhook.lua", true)
+            "webhook.lua", true),
+    ConnectionFinder = Project.new("ConnectionFinder/"):add("startup.lua")
 }
 local ProjectKeys = {}
 for key, value in pairs(Projects) do
