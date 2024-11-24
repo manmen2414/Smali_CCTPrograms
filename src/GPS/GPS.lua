@@ -60,7 +60,7 @@ local function MonitorWriter()
         end
         monitor.write(chargeText(value[1], 20));
         monitor.write("->")
-        monitor.setTextColor(dimensions[value[5]])
+        monitor.setTextColor(dimensions[value[5]] or colors.white)
         monitor.write(string.format(" %-4d %-3d %-4d", value[2], value[3], value[4]))
         monitor.setTextColor(colors.white)
         monitor.write(string.format(" |%4d|", value[6]))
