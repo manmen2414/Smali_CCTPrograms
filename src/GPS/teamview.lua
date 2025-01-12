@@ -1,11 +1,11 @@
 return function(name)
     local teams = {
         ---example MCID = "teamName"
-        AM_107ryu = "japan",
+        AM_107ryu = "",
     }
     local teamColors = {
         ---example ["Team"] = color
-        ["japan"] = colors.yellow,
+        ---NoTeam is used when player has no team.
         ["NoTeam"] = colors.white
     }
     local team = teams[name] or "NoTeam"

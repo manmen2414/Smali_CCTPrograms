@@ -31,17 +31,14 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
                 fs.makeDir("/" .. fullDir)
             end
         end
-        local content = "";
         if not InstallFull then
-            content = "return false;"
-        else
-            local req = http.get(self.installPath);
-            content = req.readAll();
-            req.close();
+            return;
         end
         local pipe = fs.open(self.filePath, "w")
-        pipe.write(content);
+        local req = http.get(self.installPath);
+        pipe.write(req.readAll());
         pipe.close();
+        req.close();
     end
 
     return program;

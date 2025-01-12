@@ -4,16 +4,26 @@ print("loading...")
 print("")
 term.clear();
 term.setCursorPos(1, 1);
+_ = peripheral.find("monitor") or error("monitor not found");
+
+---@param name string
+---@param defaultValue "error"|any
+---@return any | false
+function SafeRequire(name, defaultValue)
+    local sucessed, required = pcall(require, name);
+    if (sucessed) then return required end;
+    if (defaultValue == "error") then error(required); end;
+    if (defaultValue) then return defaultValue end;
+    return false;
+end
 
 ---@type [string, number, number, number, string, number][]
 local posArray = {};
-local Position = require("position")
-local item = require("item")
-local chat = require("chat")
-local teamview = require("teamview")
-local health = require("health")
-local webhook = require("webhook")
-local ItemTeleporter = require("ItemTeleporter")
+local Position = SafeRequire("position", "error")
+local chat = SafeRequire("chat")
+local teamview = SafeRequire("teamview")
+local health = SafeRequire("health")
+local webhook = SafeRequire("webhook")
 
 local framerate = 0.5;
 local secondDelay = 1 / framerate;
@@ -86,13 +96,6 @@ local function MonitorWriter()
         monitor.write(" Chat ")
         monitor.setBackgroundColor(colors.black)
         monitor.write(" ")
-        if (item or ItemTeleporter) then
-            monitor.setBackgroundColor(colors.orange)
-        else
-            monitor.setBackgroundColor(colors.lightGray)
-        end
-        monitor.write(" Item ")
-        monitor.setBackgroundColor(colors.black)
 
         monitor.write(repl(" ", ({ monitor.getSize() })[1]))
     end
@@ -103,22 +106,16 @@ local function writeBio()
     print("Player GPS+ v1.0.0")
     print("FrameRate: " .. framerate)
     if chat then
-        print("Chat Active.")
+        print("Chat Addon Detected.")
     end
     if teamview then
-        print("TeamView Active.")
+        print("TeamView Addon Detected.")
     end
     if health then
-        print("Health Active.")
-    end
-    if item then
-        print("Item Active.")
+        print("Health Addon Detected.")
     end
     if webhook then
-        print("webhook Active.")
-    end
-    if ItemTeleporter then
-        print("ItemTeleporter Active.")
+        print("webhook Addon Detected.")
     end
 end
 local timerConut = 0

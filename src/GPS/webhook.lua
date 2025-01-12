@@ -2,6 +2,10 @@ local discordId = {
     ---example MCID = "ID"
     AM_107ryu = "778582802504351745"
 }
+---.env
+---```env
+---WEBHOOK_URL="https://discord.com/..."
+---```
 local webhook_url = nil;
 if webhook_url == nil then
     local env = fs.open(".env", "r")
