@@ -32,13 +32,14 @@ function Program.new(FilePath, ProjectRoot, IsAddon)
             end
         end
         if not InstallFull then
-            return;
+            return false;
         end
         local pipe = fs.open(self.filePath, "w")
         local req = http.get(self.installPath);
         pipe.write(req.readAll());
         pipe.close();
         req.close();
+        return true;
     end
 
     return program;
@@ -54,8 +55,12 @@ function Project.new(Root)
     project.files = {};
     function project.install(self, List)
         for index, value in ipairs(self.files) do
-            print("Installing " .. value.file)
-            value:install(not value.isAddon or List[index])
+            local installed = value:install(not value.isAddon or List[index])
+            if installed then
+                print("Installed " .. value.file)
+            else
+                print("Skiped " .. value.file)
+            end
         end
     end
 
