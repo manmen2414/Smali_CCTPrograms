@@ -13,7 +13,7 @@ repeat
 
     local Add = GUI.Button(v2(2, 3):to(9, 3), " + Add", colors.lightBlue, colors.black, function()
         local peripherals = peripheral.getNames()
-        local from, to, slot, id, count;
+        local from, to, slot, id, count, atSlot;
         Term:clear();
         GUI.Text(v2(1, 1), "Add Component", colors.orange)
 
@@ -41,17 +41,23 @@ repeat
                 count = t;
             end
         end)
+        local AtSlot = GUI.Input(v2(2, 12):to(10, 10), "atSlot(auto)", colors.white, colors.black, false, {}, function(t)
+            if tonumber(t) then
+                atSlot = t;
+            end
+        end)
         local Done = GUI.Button(v2(2, 15):to(7, 15), " Done", colors.gray, colors.black,
             function() return "done"; end)
         local Cancel = GUI.Button(v2(10, 15):to(17, 15), " Cancel", colors.red, colors.black,
             function() return "cancel"; end)
-        local answer = wait(From, To, Slot, ID, Count, Done, Cancel)
+        local answer = wait(From, To, Slot, ID, Count, AtSlot, Done, Cancel)
         if answer == "cancel" then return answer end
         if from and to then
             term.setBackgroundColor(colors.black)
             Term:clear();
             term.setCursorPos(1, 1);
-            setting[#setting + 1] = { from = from, to = to, max_amount = count, filter = { id = id, slot = slot } };
+            setting[#setting + 1] = { from = from, to = to, max_amount = count, filter = { id = id, slot = slot }, atSlot =
+            atSlot };
             return "done";
         end
         GUI.Text(v2(2, 14), "There are missing items.", colors.black)

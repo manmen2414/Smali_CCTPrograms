@@ -1,5 +1,5 @@
 local settingRead = fs.open("setting.json", "r")
----@type {from: string,to: string,max_amount: number|nil,filter: ({slot: number}|{id: string}|{tag: string})|nil}[]
+---@type {from: string,to: string,max_amount: number|nil,filter: ({slot: number}|{id: string}|{tag: string})|nil,atSlot:number|nil}[]
 local setting = textutils.unserialiseJSON(settingRead.readAll());
 settingRead.close();
 repeat
@@ -21,10 +21,10 @@ repeat
             end
             if Slot == -1 then
                 for slot, _ in ipairs(list) do
-                    from.pushItems(Component.to, slot, Component.max_amount)
+                    from.pushItems(Component.to, slot, Component.max_amount,Component.atSlot)
                 end
             else
-                from.pushItems(Component.to, Slot, Component.max_amount)
+                from.pushItems(Component.to, Slot, Component.max_amount,Component.atSlot)
             end
         end);
         if reason == "Terminated" then
