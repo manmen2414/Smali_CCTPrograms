@@ -1,5 +1,5 @@
 local ComputerPOS = { x = 8, y = 74, z = 1 }
-local pD = peripheral.find("playerDetector")
+local pD = peripheral.find("playerDetector") or error("player Detector not found")
 term.clear()
 ---@return [string,number,number,number,string,number][]
 local function get()
